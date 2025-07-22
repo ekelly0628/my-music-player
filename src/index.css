@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+}
+
+body {
+  background: linear-gradient(145deg, #5982a9, #bdcfe2);
+  background-image: url(https://magenta-impossible-gibbon-819.mypinata.cloud/ipfs/bafybeicajkabimnajydjqhe7odnkgcffgq224y6pcx6s7a6eb43ooya3zu);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; /* Centers the image */
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.c-player {
+  display: block;
+  padding: 50px;
+  border-radius: 16px;
+
+  /* Grayish gradient background */
+  background: linear-gradient(145deg, #12167892, #353535);
+
+  /* Neumorphic shadows */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6),
+    /* dark shadow */ -8px -8px 16px rgba(255, 255, 255, 0.05); /* light highlight */
+
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.c-player > h4 {
+  color: #fff;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #add8e6, 0 0 20px #add8e6,
+    0 0 25px #add8e6, 0 0 30px #add8e6, 0 0 35px #add8e6;
+}
+
+.c-player > p {
+  color: #aaa;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.c-player--details .details-img {
+  position: relative;
+  width: fit-content;
+  margin: 50px auto;
+}
+
+.c-player--details .details-img img {
+  display: block;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  /* Neuromorphic effect */
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2),
+    /* Soft, darker shadow for depth */ -3px -3px 6px rgba(195, 230, 255, 0.7),
+    /* Lighter shadow for highlight */ inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    /* Inner shadow for subtle concavity */ inset -2px -2px 5px
+      rgba(255, 255, 255, 0.5);
+  background-color: #b7d4e7; /* A neutral background color often used with neuromorphism */
+}
+
+.c-player--details .details-title {
+  color: #cedeff;
+  font-size: 28px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7),
+    -1px -1px 2px rgba(163, 177, 198, 0.5);
+  text-align: center;
+}
+
+.c-player--details .details-artist {
+  color: #96a0af;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.c-player--controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.c-player--controls .play-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+  padding: 20px;
+  border-radius: 50%;
+
+  border: none;
+  outline: none;
+  background: #0095ff;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+
+  /* Neumorphic shadow effect */
+  box-shadow: 8px 8px 16px #009fd4, /* darker shadow */ -8px -8px 16px #4dc7ff; /* lighter highlight */
+
+  transition: all 0.2s ease-in-out;
+}
+
+.c-player--controls .play-btn:active {
+  box-shadow: inset 4px 4px 8px #009fd4, inset -4px -4px 8px #4dc7ff;
+}
+
+.c-player--controls .skip-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #7e929a;
+  font-size: 24px;
+}
+
+p {
+  font-size: 28px;
+}
+
+/* Styling for the Audio Slider */
+.c-player--slider {
+  width: 100%;
+
+  background: transparent; /* Makes the track background transparent initially */
+  margin-bottom: 20px;
+}
+
+/* Style for the slider track (the line) */
+.c-player--slider::-webkit-slider-runnable-track {
+  height: 8px;
+  background: linear-gradient(
+    145deg,
+    #0f126b,
+    #2c2c2c
+  ); /* Darker gradient for the track */
+  border-radius: 10px;
+  /* Neumorphic shadow for the track */
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.c-player--slider::-moz-range-track {
+  height: 8px;
+  background: linear-gradient(145deg, #0f126b, #2c2c2c);
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Style for the slider thumb (the draggable circle) */
+.c-player--slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Removes default browser styling */
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #0095ff; /* Matches the play button color */
+  cursor: grab;
+  margin-top: -4px;
+  /* Neumorphic shadow for the thumb */
+  box-shadow: 4px 4px 8px #009fd4, -4px -4px 8px #4dc7ff;
+  transition: all 0.2s ease-in-out;
+}
+
+.c-player--slider::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #0095ff;
+  cursor: grab;
+  /* Neumorphic shadow for the thumb */
+  box-shadow: 4px 4px 8px #009fd4, -4px -4px 8px #4dc7ff;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Active state for the thumb */
+.c-player--slider::-webkit-slider-thumb:active {
+  box-shadow: inset 2px 2px 4px #009fd4, inset -2px -2px 4px #4dc7ff;
+  cursor: grabbing;
+}
+
+.c-player--slider::-moz-range-thumb:active {
+  box-shadow: inset 2px 2px 4px #009fd4, inset -2px -2px 4px #4dc7ff;
+  cursor: grabbing;
+}
+
+.remaining-time {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff; /* White text for better glow contrast */
+  font-weight: 600; /* Bolder font for prominence */
+  letter-spacing: 0.5px; /* Subtle letter spacing for a refined look */
+  text-shadow: 0 0 8px #fff, /* Inner white glow */ 0 0 15px #add8e6,
+    /* Outer light blue glow */ 0 0 25px #add8e6;
+}
+
+.remaining-time:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  text-shadow: 0 0 10px #fff, /* Stronger white glow */ 0 0 20px #add8e6,
+    /* Stronger outer light blue glow */ 0 0 35px #add8e6;
+}
+
+.c-player--slider:hover::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    145deg,
+    #0f126b,
+    #4a4a4a
+  ); /* Slightly lighter on hover */
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.15); /* More pronounced inner shadow */
+}
+
+.c-player--slider:hover::-moz-range-track {
+  background: linear-gradient(145deg, #0f126b, #4a4a4a);
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.15);
+}
+
+/* Hover effect for the slider thumb */
+.c-player--slider:hover::-webkit-slider-thumb {
+  background: #00c0ff; /* Brighter blue on hover */
+  transform: scale(1.1); /* Slightly enlarge the thumb */
+  box-shadow: 6px 6px 12px #009fd4, -6px -6px 12px #6ad9ff; /* More pronounced shadow */
+}
